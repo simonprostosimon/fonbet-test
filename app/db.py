@@ -4,7 +4,7 @@ from . import config
 
 
 __db = MongoClient(config.MONGO_DB_HOST, config.MONGO_DB_PORT)
-__tickets = __db.fonbet.tickets
+__tickets = __db[config.MONGO_DB_DBNAME][config.MONGO_DB_TICKETS_COLLECTION]
 
 def store_ticket(number, is_lucky):
     assert isinstance(number, str) or isinstance(number, int)
